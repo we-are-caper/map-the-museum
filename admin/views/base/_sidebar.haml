@@ -1,0 +1,28 @@
+.block
+	%h3 Total located items
+	.content
+		%h4.total= link_to Item.where({:status => "located"}).length.to_s, '/admin/located_items'
+
+.block
+	%h3 Total items
+	.content
+		%h4.total= link_to Item.all.length.to_s, '/admin/items'
+
+.block
+	%h3 Import items
+	.content
+		%h4 Upload a CSV file
+		%form{:action=>"/admin/base/upload",:method=>"post",:enctype=>"multipart/form-data"}
+			%input{:type=>"file",:name=>"file"}
+			%input{:type=>"submit",:value=>"Upload"}
+
+.block
+	%h3 Add new images
+	.content
+		%h4= link_to 'Upload images', '/admin/base/image_select'
+
+.block
+	%h3 Export items
+	.content
+		%h4
+			%a{:href=>"/admin/base/download"} Download as CSV

@@ -1,0 +1,67 @@
+%h4 Item #{@item._id}
+%h4 Status: #{@item.status}
+
+.group
+  =f.label :date_created
+  =f.error_message_on :date_created
+  =f.text_field :date_created, :class => :text_field
+  %span.description Date the object was created
+
+.group
+  =f.label :source
+  =f.error_message_on :cource
+  =f.text_field :source, :class => :text_field
+  %span.description Source of the item
+
+.group
+  =f.label :description
+  =f.error_message_on :description
+  =f.text_area :description, :class => :text_area, :rows => "6"
+  %span.description Description of the item
+
+.group
+  =f.label :identification_code
+  =f.error_message_on :identification_code
+  =f.text_field :identification_code, :class => :text_field
+  %span.description Internal code, eg. BH00001
+
+.group
+  =f.label :image_reference
+  =f.error_message_on :image_reference
+  =f.text_field :image_reference, :class => :text_field
+  %span.description Associated image file reference code
+
+.group
+  =f.label :place_collected
+  =f.error_message_on :place_collected
+  =f.text_field :place_collected, :class => :text_field
+
+.group
+  =f.label :object_name
+  =f.error_message_on :object_name
+  =f.text_field :object_name, :class => :text_field
+
+.group
+  =f.label :materials
+  =f.error_message_on :materials
+  =f.text_field :materials, :class => :text_field
+
+.group
+  =f.label :title
+  =f.error_message_on :title
+  =f.text_field :title, :class => :text_field
+
+.group
+  =f.label :creator
+  =f.error_message_on :creator
+  =f.text_field :creator, :class => :text_field
+
+.group
+  =f.label :museum_collection
+  =f.error_message_on :museum_collection
+  =f.text_field :museum_collection, :class => :text_field
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:items, :index)}';return false", :class => :button

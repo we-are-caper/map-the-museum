@@ -1,0 +1,86 @@
+#todo.item.row{:"data-id" => @item.id, :"data-url" => "/items/#{@item.id}"}
+  #item_contents
+    .row
+      .five.columns
+        - if @item.photographs.size > 0
+          %a.fancybox#main_image{:href=>@item.photographs.last.attachment.url(:original)}
+            %span.image_wrapper
+              %img{:src=>@item.photographs.last.attachment.url(:large)}
+              %br
+              %span.zoom
+                See a bigger image
+                %span.zoom_icon
+        - else
+          %h2#no_image We don't seem to have an image for this object
+      .ten.columns
+        %h2#todo_question
+          - if @item.status == "unlocated"
+            Do you know where
+          - if @item.object_name == nil or @item.object_name == "0"
+            - if @item.title == nil or @item.title == "0"
+              - if @item.status == "unlocated"
+                this
+            - else
+              %strong#todo_object_name
+                %a{:href=>"#"}
+                  = @item.title.chomp(".")
+          - else
+            %strong#todo_object_name
+              %a{:href=>"#"}
+                = @item.object_name.chomp(".")
+          - if @item.status == "unlocated"
+            should go on the map?
+        - if @item.object_name && @item.object_name != "0"
+          %h2 Name
+          = simple_format @item.object_name
+        - if @item.title && @item.title != "0"
+          %h2 Title
+          = simple_format @item.title
+        - if @item.source && @item.source != "0"
+          %h2 Source
+          = simple_format @item.source
+        - if @item.date_created && @item.date_created != "0"
+          %h2 Date created
+          = simple_format @item.date_created
+        - if @item.description && @item.description != "0"
+          %h2 Description
+          - linked_description = simple_format html_escape(@item.description)
+          - if 1 == 0
+            -# matches = (linked_description + ",").scan(/\w*\W+([A-Z][a-z]+,\w[A-Z][a-z]+,\w[A-Z][a-z]\w*)\W+\w*/)
+            -# matches.each do |match|
+              -# linked_description.gsub!(match,"<a class='potential_location' title='Go here on the map' href='#' data-match='#{match}'>#{match}</a>")
+          - matches = linked_description.scan(/(?:[A-Z][a-z]+[;,]?\s+|$)+/)
+          - done = []
+          - matches.uniq.each do |m|
+            - if !m.blank?
+              - m = m.chomp(" ").chomp(",").chomp(";")
+              - unless done.include? m
+                - if m.include?(" ")
+                  - linked_description.gsub!(m,"<a class='potential_location' title='Go here on the map' href='#' data-match='#{m}'>#{m}</a>")
+                - done << m
+          - puts linked_description
+          = linked_description.html_safe
+        - if @item.materials && @item.materials != "0"
+          %h2 Materials
+          = simple_format @item.materials
+        - if @item.place_collected && @item.place_collected != "0"
+          %h2 Place collected
+          = simple_format @item.place_collected
+  - if @item.status == "unlocated"
+    .row
+      #todo_buttons
+        #i_know.button.yes{'data-flag' => "undisputed"} I know where this goes
+        %div.browser
+          #another.button.no Show me another
+        #close.button.no Browse the map
+  - else
+    .row
+      #todo_buttons
+        %div.browser
+          #i_know.button{'data-flag' => "disputed"} This isn't in the right place
+          #another.button.no Show me another
+          #close.button.no Close
+        %div.mobile
+          #close.button.no Back to the map
+          #i_know.button.no{'data-flag' => "disputed"} This isn't in the right place
+

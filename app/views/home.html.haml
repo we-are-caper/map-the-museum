@@ -1,0 +1,97 @@
+-# coding: utf-8
+#intro
+  #hero
+    .row
+      .five.columns
+        #large_logo
+          %img.four.columns{:src=>"/images/large_logo.png", :alt => "Mapping the Museum Logo"}
+      .ten.columns
+        %h1
+          Help us Map the Museum
+        - if @android_old
+          Unfortunately Map the Museum is not currently supported on older versions of the Android Mobile Operating System.
+        - else
+          %p.definition
+            There are 1000s of objects in the collection of the Royal Pavilion & Museums, Brighton & Hove.
+          %div.browser
+            %p.definition
+              Can you help us place them onto a map?
+            %p.align-centre
+              %span#get_started.button Yes! Show me an object
+            %p.align-centre
+              %a.no_thanks{:href=>"#/browse"} No thanks, I'll just browse for now
+
+          %div#intro-button.mobile
+            %p.align-centre
+              %a.no_thanks{:href=>"#/browse", :class => "button"} Browse the objects
+
+  #about_the_project
+    .row
+      .five.columns
+        %h2
+          Some of our objects
+        %ul#some_objects
+          - unless Item.all.empty?
+            %li.an_object
+              - unless Item.where(museum_collection: 'Archaeology').empty?
+                %img{:src=>Item.where(museum_collection: 'Archaeology').last.photographs.first.attachment.url(:small)}
+            %li.an_object
+              - unless Item.where(museum_collection: 'Local History').empty?
+                %img{:src=>Item.where(museum_collection: 'Local History')[9].photographs.first.attachment.url(:small)}
+            %li.an_object
+              - unless Item.where(museum_collection: 'Photographs').empty?
+                %img{:src=>Item.where(museum_collection: 'Photographs')[10].photographs.first.attachment.url(:small)}
+            %li.an_object
+              - unless Item.where(museum_collection: 'Fine Art').empty?
+                %img{:src=>Item.where(museum_collection: 'Fine Art')[4].photographs.first.attachment.url(:small)}
+
+        %p#image_credits
+          All images are released under the Creative Commons license
+          = succeed(".") do
+            %a{:href=>"http://creativecommons.org/licenses/by-nc-nd/3.0/"}CC BY-NC-ND 3.0
+      .ten.columns
+        %h2
+          About the project
+        %p
+          Sometimes we know an object is linked to Brighton & Hove, but we don’t know exactly how or why. We need your help to learn more about our objects.
+
+        %p
+          We will add all the information we collect on this website to our catalogue and release it as
+          %a{:href=>"http://en.wikipedia.org/wiki/Open_data", :title=>"What is open data?"}
+            open data.
+        %p
+          Visit the
+          %a{:href=>"http://rpmcollections.wordpress.com/category/digital/map-the-museum/"}
+            Map the Museum blog
+          to stay up to date with our progress.
+
+        %p
+          This is a trial (or 'beta') version of the website. Over time, we will add more objects and change the way the site works, based on how people use it. Let us know if you have any comments by email
+          %a{:href=>"objectimages@brighton-hove.gov.uk"} objectimages@brighton-hove.gov.uk
+          or via Twitter,
+          = succeed(".") do
+            %a{:href=>"http://twitter.com/mapthemuseum"} @mapthemuseum
+
+
+#challenge.hidden
+
+#thanks.hidden
+
+  %div.browser
+    %h2.centered
+      %strong Thank you!
+      %br
+      You placed
+      %strong#thanks_object_name
+      on the map.
+      %br
+      Would you like to see another object?
+    %p.centered
+      %span#try_again.button Yes! Show me another object
+    %p
+      %a.no_thanks{:href=>"#/browse"} No thanks, I'll just browse for now
+  %div.mobile
+    %h2.centered
+      %strong Thank you!
+    %p.centered
+      #show_map.button.no Close

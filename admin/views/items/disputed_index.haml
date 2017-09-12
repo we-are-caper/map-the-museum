@@ -1,0 +1,40 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:items, :index)
+      %li=link_to pat(:new), url(:items, :new)
+  .content
+    %h2.title
+      =pat(:disputed)
+      =mt(:items)
+    .inner.table_wrapper
+      %table.table
+        %tr
+          %th.first=mat(:item, :object_name)
+          %th=mat(:item, :identification_code)
+          %th=mat(:item, 'Location status')
+          %th=mat(:item, 'Reason')
+          %th=mat(:item, :updated_at)
+          %th=mat(:item, :created_at)
+          %th=mat(:item, :located_at)
+          %th=mat(:item, :museum_collection)
+          %th.last="&nbsp;".html_safe
+        - if @items
+          -@items.each do |item|
+            - if item.locations.last.status == "disputed"
+              %tr
+                %td.first=item.object_name
+                %td=item.identification_code
+                %td=item.locations.last.status
+                %td=item.locations.last.reason
+                %td=item.updated_at
+                %td=item.created_at
+                %td=item.located_at
+                %td=item.museum_collection
+                %td.last
+                  =button_to "Show the item in new window", url("../#14.00/#{item.locations.last.place.x}/#{item.locations.last.place.y}/#{item.id.to_s}/"), :method => :get, :class => :button_to, :target => "_blank"
+                  =button_to "Confirm location", url(:disputed_items, :confirm, :id => item.id), :method => :put, :class => :button_to
+          .actions-bar.wat-cf
+            .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

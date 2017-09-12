@@ -1,0 +1,6 @@
+/* line 1, ../../app/stylesheets/ie.scss */
+body div#take_notes div#thoughts div.thought {
+  background-color: white !important;
+  padding: 0.5em;
+  border: 1px solid #eee;
+}

@@ -1,0 +1,55 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:items, :index)
+      %li=link_to pat(:new), url(:items, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:items)
+    .inner.table_wrapper
+      %table.table
+        %tr
+          %th.first=mat(:item, :status)
+          %th.desc=mat(:item, :description)
+          %th=mat(:item, :identification_code)
+          %th=mat(:item, :image_reference)
+          %th=mat(:item, :place_collected)
+          %th=mat(:item, :date_created)
+          %th=mat(:item, :source)
+          %th=mat(:item, :object_name)
+          %th=mat(:item, :updated_at)
+          %th=mat(:item, :created_at)
+          %th=mat(:item, :materials)
+          %th=mat(:item, :title)
+          %th=mat(:item, :creator)
+          %th=mat(:item, :located_at)
+          %th=mat(:item, 'Location status')
+          %th=mat(:item, :museum_collection)
+          %th.last="&nbsp;"
+        -@items.each do |item|
+          %tr
+            %td.first=item.status
+            %td.desc=item.description
+            %td=item.identification_code
+            %td=item.image_reference
+            %td=item.place_collected
+            %td=item.date_created
+            %td=item.source
+            %td=item.object_name
+            %td=item.updated_at
+            %td=item.created_at
+            %td=item.materials
+            %td=item.title
+            %td=item.creator
+            %td=item.located_at
+            %td=item.locations.last ? item.locations.last.status : ""
+            %td=item.museum_collection
+            %td.last
+              =button_to pat(:edit), url(:items, :edit, :id => item.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:items, :destroy, :id => item.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

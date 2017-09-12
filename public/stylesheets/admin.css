@@ -1,0 +1,160 @@
+/* line 7, ../../app/stylesheets/admin.scss */
+.form input[type=text], .form input[type=password] {
+  padding: 0.5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 11, ../../app/stylesheets/admin.scss */
+.form textarea.text_area {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.5em;
+  height: 9em;
+}
+
+/* line 19, ../../app/stylesheets/admin.scss */
+.table th {
+  background-color: #ffecba;
+  color: #333;
+}
+/* line 25, ../../app/stylesheets/admin.scss */
+.table tr.starred td.first a:link, .table tr.starred td.first a:visited, .table tr.starred td.first a:hover {
+  font-weight: bold;
+}
+/* line 30, ../../app/stylesheets/admin.scss */
+.table tr.muted {
+  background-color: #eee;
+  border-bottom: 2px solid white;
+}
+/* line 33, ../../app/stylesheets/admin.scss */
+.table tr.muted td {
+  color: #999;
+}
+/* line 36, ../../app/stylesheets/admin.scss */
+.table tr.muted td a:link {
+  color: #999;
+}
+/* line 39, ../../app/stylesheets/admin.scss */
+.table tr.muted td a:visited {
+  color: #999;
+}
+/* line 43, ../../app/stylesheets/admin.scss */
+.table tr.muted td .button_to input {
+  background-color: #aaa;
+}
+
+/* line 50, ../../app/stylesheets/admin.scss */
+.button_to input {
+  padding: 0.5em;
+  background-color: #5599dd;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  border-radius: 0.5em;
+  text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 1px;
+}
+
+/* line 62, ../../app/stylesheets/admin.scss */
+.delete .button_to input {
+  background-color: #aa4444;
+}
+
+/* line 68, ../../app/stylesheets/admin.scss */
+div.secondary-navigation {
+  border-bottom: #ffde87;
+  background-color: #ffecba;
+}
+/* line 73, ../../app/stylesheets/admin.scss */
+div.secondary-navigation ul li.active {
+  background-color: #ffc121;
+}
+/* line 75, ../../app/stylesheets/admin.scss */
+div.secondary-navigation ul li.active a:hover {
+  background-color: #edab00;
+}
+/* line 79, ../../app/stylesheets/admin.scss */
+div.secondary-navigation ul li a:link, div.secondary-navigation ul li a:hover, div.secondary-navigation ul li a:visited {
+  color: #333;
+  font-weight: bold;
+}
+/* line 83, ../../app/stylesheets/admin.scss */
+div.secondary-navigation ul li a:hover {
+  background-color: #ffc121;
+}
+
+/* line 90, ../../app/stylesheets/admin.scss */
+div#main-navigation {
+  background-color: white;
+}
+/* line 93, ../../app/stylesheets/admin.scss */
+div#main-navigation ul li {
+  background-color: #ffecba;
+  margin-right: 10px;
+  padding-left: 0px;
+}
+/* line 97, ../../app/stylesheets/admin.scss */
+div#main-navigation ul li.active {
+  background-color: #ffc121;
+  margin-left: 0px;
+}
+/* line 101, ../../app/stylesheets/admin.scss */
+div#main-navigation ul li a:link, div#main-navigation ul li a:hover, div#main-navigation ul li a:visited {
+  color: #333;
+  font-weight: bold;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: 0px;
+}
+/* line 108, ../../app/stylesheets/admin.scss */
+div#main-navigation ul li a:hover {
+  background-color: #ffc121;
+}
+
+/* line 115, ../../app/stylesheets/admin.scss */
+#header {
+  background-color: white;
+}
+/* line 118, ../../app/stylesheets/admin.scss */
+#header h1 a:link, #header h1 a:visited {
+  font-family: "Leckerli One", "Helvetica Neue", Helcetica, Arial, sans-serif;
+  color: #5599dd;
+  font-weight: normal;
+}
+
+/* line 127, ../../app/stylesheets/admin.scss */
+#box h1 {
+  font-family: "Leckerli One", "Helvetica Neue", Helcetica, Arial, sans-serif;
+  color: #5599dd;
+  font-weight: normal;
+  font-size: 64px;
+}
+/* line 134, ../../app/stylesheets/admin.scss */
+#box #block-login h2 {
+  background-color: #ffde87;
+  color: #333;
+}
+/* line 139, ../../app/stylesheets/admin.scss */
+#box .block {
+  -webkit-box-shadow: #ffecba 0px 0px 20px;
+  -moz-box-shadow: #ffecba 0px 0px 20px;
+  box-shadow: #ffecba 0px 0px 20px;
+  padding: 2em;
+}
+
+/* line 145, ../../app/stylesheets/admin.scss */
+body {
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #fffaed;
+}
+
+/* line 151, ../../app/stylesheets/admin.scss */
+.table_wrapper {
+  overflow: scroll;
+}

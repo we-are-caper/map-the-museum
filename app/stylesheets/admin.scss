@@ -1,0 +1,153 @@
+@import "compass/css3";
+
+$light_background: #fffaed;
+$brand_colour: #59d;
+
+.form {
+  input[type=text], input[type=password] {
+    padding: 0.5em;
+    @include box-sizing(border-box);
+  }
+  textarea.text_area {
+    @include box-sizing(border-box);
+    padding: 0.5em;
+    height: 9em;
+  }
+}
+
+.table {
+  th {
+    background-color: darken($light_background, 10);
+    color: #333;
+  }
+  tr.starred {
+    td.first {
+      a:link, a:visited, a:hover {
+        font-weight: bold;
+      }
+    }
+  }
+  tr.muted {
+    background-color: #eee;
+    border-bottom: 2px solid white;
+    td {
+      color: #999;
+      a {
+        &:link {
+          color: #999;
+        }
+        &:visited {
+          color: #999;
+        }
+      }
+      .button_to input {
+        background-color: #aaa;
+      }
+    }
+  }
+}
+
+.button_to input {
+  padding: 0.5em;
+  background-color: $brand_colour; 
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  @include border-radius(0.5em);
+  @include text-shadow(rgba(0,0,0,0.5) 0px 1px 1px);
+}
+
+.delete {
+  .button_to {
+    input {
+      background-color: #aa4444;
+    }
+  }
+}
+
+div.secondary-navigation {
+  border-bottom: darken($light_background, 20);
+  background-color: darken($light_background, 10);
+  ul {
+    li {
+      &.active {
+        background-color: darken($light_background, 40);
+        a:hover {
+          background-color: darken($light_background, 50);
+        }
+      }
+      a:link, a:hover, a:visited {
+        color: #333;
+        font-weight: bold;
+      }
+      a:hover {
+        background-color: darken($light_background, 40);
+      }
+    }
+  }
+}
+
+div#main-navigation {
+  background-color: white;
+  ul {
+    li {
+      background-color: darken($light_background, 10);
+      margin-right: 10px;
+      padding-left: 0px;
+      &.active {
+        background-color: darken($light_background, 40);
+        margin-left: 0px;
+      }
+      a:link, a:hover, a:visited {
+        color: #333;
+        font-weight: bold;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-left: 0px;
+      }
+      a:hover {
+        background-color: darken($light_background, 40);
+      }
+    }
+  }
+}
+
+#header {
+  background-color: white;
+  h1 {
+    a:link, a:visited {
+      font-family: "Leckerli One", "Helvetica Neue", Helcetica, Arial, sans-serif;
+      color: $brand_colour;
+      font-weight: normal;
+    } 
+  }
+}
+
+#box {
+  h1 {
+      font-family: "Leckerli One", "Helvetica Neue", Helcetica, Arial, sans-serif;
+      color: $brand_colour;
+      font-weight: normal;
+      font-size: 64px;
+  }
+  #block-login {
+    h2 {
+      background-color: darken($light_background, 20);
+      color: #333;
+    }
+  }
+  .block {
+    @include box-shadow(darken($light_background,10) 0px 0px 20px);
+    padding: 2em;
+  }
+}
+
+body {
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: $light_background;
+}
+
+.table_wrapper {
+  overflow: scroll;
+}
